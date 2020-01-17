@@ -12,6 +12,7 @@ import io.github.defolters.taskdistribution.databinding.FragmentLoginBinding
 import io.github.defolters.taskdistribution.presentation.login.LoginContract
 import io.github.defolters.taskdistribution.presentation.login.model.LoginModel
 import io.github.defolters.taskdistribution.presentation.login.presenter.LoginPresenter
+import io.github.defolters.taskdistribution.util.hideKeyboard
 import io.github.defolters.taskdistribution.util.navControl
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -43,16 +44,21 @@ class LoginFragment : Fragment(), LoginContract.View {
         presenter = LoginPresenter(this)
 
         login_button.setOnClickListener {
+            binding.loginModel?.let { loginModel ->
+                it.hideKeyboard()
+                if (loginModel.isEnabled) presenter.login(loginModel)
+            }
 
         }
+        setLoginModel(LoginModel("", ""))
     }
 
     override fun navigateAsSeller() {
-        navControl()?.navigate(R.id.ordersListFragment)
+        navControl()?.navigate(R.id.action_loginFragment_to_ordersListFragment)
     }
 
     override fun navigateAsWorker() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        navControl()?.navigate(R.id.action_loginFragment_to_tasksListFragment)
     }
 
     override fun setLoginModel(loginModel: LoginModel) {

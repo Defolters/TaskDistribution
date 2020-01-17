@@ -8,43 +8,53 @@
             name="loginModel"
             type="io.github.defolters.taskdistribution.presentation.login.model.LoginModel" />
 
-        <variable
-            name="presenter"
-            type="io.github.defolters.taskdistribution.presentation.login.LoginContract.Presenter" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background"
+        android:paddingStart="@dimen/default_margin"
+        android:paddingEnd="@dimen/default_margin"
         tools:context=".presentation.login.view.LoginFragment">
 
         <TextView
             android:id="@+id/tvWelcome"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome"
-            app:layout_constraintBottom_toTopOf="@id/etUsername"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins_font"
+            android:text="Login"
+            android:textColor="@color/textColor"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username"
+            android:maxLines="1"
+            android:text="@={loginModel.username}"
+            android:textColor="@color/textColor"
+            android:textColorHint="@color/edit_text_hint_color"
+            app:layout_constraintBottom_toTopOf="@id/etPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
-            android:id="@+id/etUsername"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="Username"
-            app:layout_constraintBottom_toTopOf="@id/etPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
-
-        <EditText
             android:id="@+id/etPassword"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:text="@={loginModel.password}"
+            android:textColor="@color/textColor"
+            android:textColorHint="@color/edit_text_hint_color"
             app:layout_constraintBottom_toTopOf="@id/login_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,9 +64,12 @@
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="20dp"
-            android:enabled="@{loginModel.enabled}"
-            android:onClick="@{() -> presenter.login(loginModel)}"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/button_gradient"
+            android:text="Login"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

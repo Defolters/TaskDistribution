@@ -1,5 +1,6 @@
 package io.github.defolters.taskdistribution.presentation.login.presenter
 
+import android.util.Log
 import io.github.defolters.taskdistribution.domain.login.ILoginInteractor
 import io.github.defolters.taskdistribution.domain.login.LoginInteractor
 import io.github.defolters.taskdistribution.presentation.login.LoginContract
@@ -11,6 +12,13 @@ class LoginPresenter(val loginView: LoginContract.View) : LoginContract.Presente
     private var loginInteractor: ILoginInteractor = LoginInteractor()
 
     override fun login(loginModel: LoginModel) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.d("LoginPresenter", "login ")
+
+        if (loginModel.username.contains("1")) {
+            loginView.navigateAsSeller()
+        } else {
+            loginView.navigateAsWorker()
+        }
+
     }
 }

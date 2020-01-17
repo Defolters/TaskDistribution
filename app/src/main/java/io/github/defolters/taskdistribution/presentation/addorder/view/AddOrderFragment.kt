@@ -7,11 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import io.github.defolters.taskdistribution.R
+import io.github.defolters.taskdistribution.presentation.addorder.AddOrderContract
 
 /**
  * A simple [Fragment] subclass.
  */
-class AddOrderFragment : Fragment() {
+class AddOrderFragment : Fragment(), AddOrderContract.View {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,5 +22,7 @@ class AddOrderFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_add_order, container, false)
     }
 
-
+    override fun navigateToAddItems() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
