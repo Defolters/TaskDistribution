@@ -3,15 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
     android:layout_marginTop="10dp"
+    android:layout_marginEnd="5dp"
     android:layout_marginBottom="10dp"
     android:elevation="20dp"
-    android:orientation="vertical"
-    app:cardElevation="20dp">
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp">
 
         <TextView
             android:id="@+id/tvOrder"
@@ -36,7 +39,7 @@
             android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1000.0Р"
+            android:text="Status"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDate" />

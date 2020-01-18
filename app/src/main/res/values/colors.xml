@@ -16,5 +16,8 @@
     <color name="background_start">#B8C6DB</color>
     <color name="background_end">#D8DEDE</color>
     <color name="white_f9">#f9f9f9</color>
+    <color name="status_new">#EE2375</color>
+    <color name="status_progress">#42AAFD</color>
+    <color name="status_done">#32CD32</color>
     <!--    background or white f9?-->
 </resources>
