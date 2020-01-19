@@ -13,6 +13,7 @@ import io.github.defolters.taskdistribution.presentation.addorder.model.ItemMode
 import io.github.defolters.taskdistribution.presentation.addorder.view.ItemsAdapter
 import io.github.defolters.taskdistribution.presentation.orderdetail.OrderDetailContract
 import io.github.defolters.taskdistribution.presentation.orderdetail.presenter.OrderDetailPresenter
+import io.github.defolters.taskdistribution.presentation.orderslist.model.OrderModel
 import kotlinx.android.synthetic.main.fragment_order_detail.*
 
 /**
@@ -51,6 +52,14 @@ class OrderDetailFragment : Fragment(), OrderDetailContract.View {
             //navigateToOrder()
         }
 
-        adapter.dataset = mutableListOf(ItemModel(""), ItemModel(""), ItemModel(""))
+        adapter.dataset = mutableListOf(
+            ItemModel("Item", "Item", 150f, null),
+            ItemModel("Item", "Item", 150f, null),
+            ItemModel("Item", "Item", 150f, null)
+        )
+    }
+
+    override fun showOrder(order: OrderModel) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

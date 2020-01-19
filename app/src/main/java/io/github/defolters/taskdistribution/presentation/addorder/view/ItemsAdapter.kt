@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.defolters.taskdistribution.R
 import io.github.defolters.taskdistribution.presentation.addorder.model.ItemModel
 import io.github.defolters.taskdistribution.util.getLayoutInflater
+import kotlinx.android.synthetic.main.item_item.view.*
 
 
 class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
@@ -42,15 +43,9 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
 
         @SuppressLint("SetTextI18n")
         fun bind(model: ItemModel) {
+            itemView.tvItemName.text = model.name
+            itemView.tvPrice.text = model.price.toString()
 
-//            itemView.
-
-//            itemView.tvTitle.text = model.title
-//            itemView.tvDescription.text = model.description
-//            itemView.ivBackground.setBackgroundResource(model.assignmentBackground)
-//            itemView.ivCardImage.setImageResource(model.assignmentImage)
-//            itemView.tvDate.text =
-//                "Добавлено ${model.meta?.createdAt?.getDayNumber()} ${model.meta?.createdAt?.getMonthName()}"
         }
     }
 }

@@ -51,6 +51,9 @@ class ItemsListFragment : Fragment(), ItemsListContract.View {
             //            fragmentManager?.popBackStack()
         }
 
-        adapter.dataset = mutableListOf(ItemModel(""), ItemModel(""), ItemModel(""))
+        adapter.dataset = mutableListOf(
+            ItemModel("Item", "Item", 150f, null),
+            ItemModel("Item", "Item", 150f, null)
+        )
     }
 }

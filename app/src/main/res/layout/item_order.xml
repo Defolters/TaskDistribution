@@ -14,16 +14,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:paddingEnd="5dp">
+
+        <ImageView
+            android:id="@+id/ivStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_time_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="Order 123456"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/tvDate"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivStatus"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

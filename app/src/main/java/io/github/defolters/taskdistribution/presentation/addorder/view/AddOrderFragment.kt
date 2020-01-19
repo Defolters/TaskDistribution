@@ -59,7 +59,12 @@ class AddOrderFragment : Fragment(), AddOrderContract.View {
             //navigateToOrder()
         }
 
-        adapter.dataset = mutableListOf(ItemModel(""), ItemModel(""), ItemModel(""))
+        adapter.dataset = mutableListOf(
+            ItemModel("Item", "Item", 150f, null),
+            ItemModel("Item", "Item", 150f, null),
+            ItemModel("Item", "Item", 150f, null),
+            ItemModel("Item", "Item", 150f, null)
+        )
 
 //        presenter.get()
     }

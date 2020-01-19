@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.github.defolters.taskdistribution.R
 import io.github.defolters.taskdistribution.presentation.orderslist.model.OrderModel
+import io.github.defolters.taskdistribution.presentation.orderslist.model.OrderStatus
 import io.github.defolters.taskdistribution.util.getLayoutInflater
+import kotlinx.android.synthetic.main.item_order.view.*
 
 
 class OrdersAdapter : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
@@ -43,14 +45,11 @@ class OrdersAdapter : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
         @SuppressLint("SetTextI18n")
         fun bind(model: OrderModel) {
 
-//            itemView.
+            when (model.status) {
+                OrderStatus.IN_PROGRESS -> itemView.ivStatus.setImageResource(R.drawable.ic_time_black)
+                OrderStatus.DONE -> itemView.ivStatus.setImageResource(R.drawable.ic_done_black)
+            }
 
-//            itemView.tvTitle.text = model.title
-//            itemView.tvDescription.text = model.description
-//            itemView.ivBackground.setBackgroundResource(model.assignmentBackground)
-//            itemView.ivCardImage.setImageResource(model.assignmentImage)
-//            itemView.tvDate.text =
-//                "Добавлено ${model.meta?.createdAt?.getDayNumber()} ${model.meta?.createdAt?.getMonthName()}"
         }
     }
 }

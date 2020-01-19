@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.github.defolters.taskdistribution.R
 import io.github.defolters.taskdistribution.databinding.FragmentOrdersListBinding
+import io.github.defolters.taskdistribution.presentation.EdgeDecorator
 import io.github.defolters.taskdistribution.presentation.orderslist.OrdersListContract
 import io.github.defolters.taskdistribution.presentation.orderslist.model.OrderModel
 import io.github.defolters.taskdistribution.presentation.orderslist.presenter.OrdersListPresenter
@@ -54,6 +55,7 @@ class OrdersListFragment : Fragment(), OrdersListContract.View {
         val llm = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         rvOrders.layoutManager = llm
         rvOrders.adapter = adapter
+        rvOrders.addItemDecoration(EdgeDecorator(0, 400))
 
         adapter.onItemClick = {
             navigateToOrder()

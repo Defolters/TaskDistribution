@@ -43,14 +43,6 @@ class TasksAdapter : RecyclerView.Adapter<TasksAdapter.ViewHolder>() {
         @SuppressLint("SetTextI18n")
         fun bind(model: TaskModel) {
 
-//            itemView.
-
-//            itemView.tvTitle.text = model.title
-//            itemView.tvDescription.text = model.description
-//            itemView.ivBackground.setBackgroundResource(model.assignmentBackground)
-//            itemView.ivCardImage.setImageResource(model.assignmentImage)
-//            itemView.tvDate.text =
-//                "Добавлено ${model.meta?.createdAt?.getDayNumber()} ${model.meta?.createdAt?.getMonthName()}"
         }
     }
 }
