@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Order #16"
-            android:textSize="32sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -53,7 +53,7 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="50dp"
-            android:text="Sum:"
+            android:text="Price:"
             android:textSize="12sp" />
 
         <TextView
@@ -62,6 +62,25 @@
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
             android:text="1000.0 rub"
+            android:textColor="@color/textColor"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="50dp"
+            android:text="Customer:"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:text="Mark Polly"
             android:textColor="@color/textColor"
             android:textSize="12sp"
             android:textStyle="bold" />
