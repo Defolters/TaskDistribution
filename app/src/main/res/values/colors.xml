@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#01BACC</color>
+    <color name="colorPrimaryDark">#42AAFD</color>
+    <color name="colorAccent">#8539F9</color>
+    <color name="white_88">#88ffffff</color>
+    <color name="white">#ffff</color>
+    <color name="grey_ca">#cacaca</color>
+    <color name="toolbar_text_color">#000000</color>
+    <color name="background">#F9FAFB</color>
+    <color name="edit_text_color">#000000</color>
+    <color name="textColor">#404040</color>
+    <color name="edit_text_hint_color">#4D404040</color>
+    <color name="gradient_button_start">#42AAFD</color>
+    <color name="gradient_button_end">#42BAFD</color>
+    <color name="background_start">#B8C6DB</color>
+    <color name="background_end">#D8DEDE</color>
+    <color name="white_f9">#f9f9f9</color>
+    <color name="status_new">#EE2375</color>
+    <color name="status_progress">#42AAFD</color>
+    <color name="status_done">#32CD32</color>
+    <!--    background or white f9?-->
 </resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="io.github.defolters.taskdistribution.presentation.login.view.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_ordersListFragment"
+            app:destination="@id/ordersListFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_tasksListFragment"
+            app:destination="@id/tasksListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ordersListFragment"
+        android:name="io.github.defolters.taskdistribution.presentation.orderslist.view.OrdersListFragment"
+        android:label="OrdersListFragment"
+        tools:layout="@layout/fragment_orders_list">
+        <action
+            android:id="@+id/action_ordersListFragment_to_addOrderFragment"
+            app:destination="@id/addOrderFragment" />
+        <action
+            android:id="@+id/action_ordersListFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addOrderFragment"
+        android:name="io.github.defolters.taskdistribution.presentation.addorder.view.AddOrderFragment"
+        android:label="fragment_add_order"
+        tools:layout="@layout/fragment_add_order">
+        <action
+            android:id="@+id/action_addOrderFragment_to_itemsListFragment"
+            app:destination="@id/itemsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemsListFragment"
+        android:name="io.github.defolters.taskdistribution.presentation.itemslist.view.ItemsListFragment"
+        android:label="fragment_items_list"
+        tools:layout="@layout/fragment_items_list" />
+    <fragment
+        android:id="@+id/orderDetailFragment"
+        android:name="io.github.defolters.taskdistribution.presentation.orderdetail.view.OrderDetailFragment"
+        android:label="fragment_order_detail"
+        tools:layout="@layout/fragment_order_detail" />
+    <fragment
+        android:id="@+id/tasksListFragment"
+        android:name="io.github.defolters.taskdistribution.presentation.taskslist.view.TasksListFragment"
+        android:label="fragment_tasks_list"
+        tools:layout="@layout/fragment_tasks_list">
+        <action
+            android:id="@+id/action_tasksListFragment_to_taskDetailFragment"
+            app:destination="@id/taskDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="io.github.defolters.taskdistribution.presentation.taskdetail.view.TaskDetailFragment"
+        android:label="fragment_task_detail"
+        tools:layout="@layout/fragment_task_detail" />
+</navigation>
