@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import io.github.defolters.taskdistribution.R
@@ -63,5 +64,9 @@ class LoginFragment : Fragment(), LoginContract.View {
 
     override fun setLoginModel(loginModel: LoginModel) {
         binding.loginModel = loginModel
+    }
+
+    override fun showToast(string: String) {
+        Toast.makeText(context, string, Toast.LENGTH_SHORT).show();
     }
 }
