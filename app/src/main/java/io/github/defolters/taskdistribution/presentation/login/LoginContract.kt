@@ -1,5 +1,6 @@
 package io.github.defolters.taskdistribution.presentation.login
 
+import io.github.defolters.taskdistribution.data.remote.model.UserType
 import io.github.defolters.taskdistribution.presentation.login.model.LoginModel
 
 interface LoginContract {
@@ -13,7 +14,6 @@ interface LoginContract {
 
     interface Presenter {
         fun login(loginModel: LoginModel)
-
-        // listen username and password fields to activate button
+        fun handleUserType(userType: UserType?)
     }
 }

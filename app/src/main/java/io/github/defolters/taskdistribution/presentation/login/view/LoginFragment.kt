@@ -9,12 +9,14 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import io.github.defolters.taskdistribution.R
+import io.github.defolters.taskdistribution.data.remote.model.UserType
 import io.github.defolters.taskdistribution.databinding.FragmentLoginBinding
 import io.github.defolters.taskdistribution.presentation.login.LoginContract
 import io.github.defolters.taskdistribution.presentation.login.model.LoginModel
 import io.github.defolters.taskdistribution.presentation.login.presenter.LoginPresenter
 import io.github.defolters.taskdistribution.util.hideKeyboard
 import io.github.defolters.taskdistribution.util.navControl
+import io.paperdb.Paper
 import kotlinx.android.synthetic.main.fragment_login.*
 
 /**
@@ -52,6 +54,10 @@ class LoginFragment : Fragment(), LoginContract.View {
 
         }
         setLoginModel(LoginModel("", ""))
+
+        val token = Paper.book().read<String>("TOKEN")
+        val userType = Paper.book().read<UserType>("USER_TYPE")
+        if (token != null) presenter.handleUserType(userType)
     }
 
     override fun navigateAsSeller() {

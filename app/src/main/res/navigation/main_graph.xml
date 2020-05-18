@@ -12,10 +12,14 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_ordersListFragment"
-            app:destination="@id/ordersListFragment" />
+            app:destination="@id/ordersListFragment"
+            app:popUpTo="@id/main_graph"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_loginFragment_to_tasksListFragment"
-            app:destination="@id/tasksListFragment" />
+            app:destination="@id/tasksListFragment"
+            app:popUpTo="@id/main_graph"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/ordersListFragment"
