@@ -94,8 +94,10 @@ class AddOrderFragment : Fragment(), AddOrderContract.View {
         }
 
         sharedViewModel.itemsData.observe(this, Observer { items ->
-            adapter.dataset = items.toMutableList()
-            tvPrice.text = "Стоимость: ${items.sumByDouble { it.price }} P"
+            items?.let {
+                adapter.dataset = items.toMutableList()
+                tvPrice.text = "Стоимость: ${items.sumByDouble { it.price }} P"
+            }
         })
     }
 

@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.github.defolters.taskdistribution.R
 import io.github.defolters.taskdistribution.data.remote.model.Order
 import io.github.defolters.taskdistribution.databinding.FragmentOrdersListBinding
 import io.github.defolters.taskdistribution.presentation.EdgeDecorator
+import io.github.defolters.taskdistribution.presentation.SharedViewModel
 import io.github.defolters.taskdistribution.presentation.orderslist.OrdersListContract
 import io.github.defolters.taskdistribution.presentation.orderslist.presenter.OrdersListPresenter
 import io.github.defolters.taskdistribution.util.navControl
@@ -26,6 +28,15 @@ class OrdersListFragment : Fragment(), OrdersListContract.View {
     private lateinit var presenter: OrdersListContract.Presenter
     private lateinit var binding: FragmentOrdersListBinding
     private lateinit var adapter: OrdersAdapter
+    private lateinit var sharedViewModel: SharedViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        activity?.run {
+            sharedViewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +58,7 @@ class OrdersListFragment : Fragment(), OrdersListContract.View {
         presenter = OrdersListPresenter(this)
 
         cvAddOrder.setOnClickListener {
+            sharedViewModel.itemsData.value = null
             navigateToAddOrder()
         }
 
