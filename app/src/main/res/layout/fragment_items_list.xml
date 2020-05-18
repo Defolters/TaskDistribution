@@ -8,7 +8,7 @@
     android:layout_marginEnd="16dp"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".presentation.itemslist.view.ItemsListFragment">
+    tools:context=".presentation.additemslist.view.ItemsListFragment">
 
     <TextView
         android:id="@+id/tvTitle"

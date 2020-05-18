@@ -69,7 +69,7 @@ class AddItemFragment : BottomSheetDialogFragment(), AddItemContract.View {
                     ItemJSON(
                         id,
                         info, price,
-                        adapter.dataset.map { it.taskTemplate.id }
+                        adapter.dataset.filter { it.isChecked }.map { it.taskTemplate.id }
                     )
                 )
                 sharedViewModel.itemsData.value = list

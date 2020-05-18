@@ -1,4 +1,4 @@
-package io.github.defolters.taskdistribution.presentation.itemslist
+package io.github.defolters.taskdistribution.presentation.additemslist
 
 import io.github.defolters.taskdistribution.data.remote.model.ItemTemplate
 

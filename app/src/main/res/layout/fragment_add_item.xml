@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -14,9 +15,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_margin"
             android:layout_marginEnd="@dimen/default_margin"
             android:baselineAligned="false"
@@ -25,26 +26,31 @@
 
             <TextView
                 android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:fontFamily="sans-serif"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="Информация"
                 android:textColor="#000"
                 android:textSize="32sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/ivClose"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/ivClose"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="@dimen/default_margin"
                 android:src="@drawable/ic_close"
-                android:tint="#000" />
+                android:tint="#000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <EditText
             android:id="@+id/etInfo"

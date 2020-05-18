@@ -1,8 +1,8 @@
-package io.github.defolters.taskdistribution.presentation.itemslist.presenter
+package io.github.defolters.taskdistribution.presentation.additemslist.presenter
 
 import android.util.Log
 import io.github.defolters.taskdistribution.data.remote.Api
-import io.github.defolters.taskdistribution.presentation.itemslist.ItemsListContract
+import io.github.defolters.taskdistribution.presentation.additemslist.ItemsListContract
 import io.github.defolters.taskdistribution.util.enqueue
 
 class ItemsListPresenter(private val itemsListView: ItemsListContract.View) :

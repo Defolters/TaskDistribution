@@ -1,4 +1,4 @@
-package io.github.defolters.taskdistribution.presentation.itemslist.view
+package io.github.defolters.taskdistribution.presentation.additemslist.view
 
 
 import android.annotation.SuppressLint

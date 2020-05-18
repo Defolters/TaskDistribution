@@ -1,4 +1,4 @@
-package io.github.defolters.taskdistribution.presentation.itemslist.view
+package io.github.defolters.taskdistribution.presentation.additemslist.view
 
 
 import android.os.Bundle
@@ -15,8 +15,8 @@ import io.github.defolters.taskdistribution.R
 import io.github.defolters.taskdistribution.data.remote.model.ItemTemplate
 import io.github.defolters.taskdistribution.presentation.SharedViewModel
 import io.github.defolters.taskdistribution.presentation.additem.view.AddItemFragment
-import io.github.defolters.taskdistribution.presentation.itemslist.ItemsListContract
-import io.github.defolters.taskdistribution.presentation.itemslist.presenter.ItemsListPresenter
+import io.github.defolters.taskdistribution.presentation.additemslist.ItemsListContract
+import io.github.defolters.taskdistribution.presentation.additemslist.presenter.ItemsListPresenter
 import kotlinx.android.synthetic.main.fragment_items_list.*
 
 /**
