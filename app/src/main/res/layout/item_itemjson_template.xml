@@ -8,15 +8,15 @@
     android:layout_marginEnd="5dp"
     android:layout_marginBottom="10dp"
     android:elevation="20dp"
-    android:orientation="vertical">
+    app:cardCornerRadius="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="5dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingEnd="5dp">
+        android:paddingTop="10dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="10dp">
 
         <ImageView
             android:id="@+id/ivStatus"
@@ -28,32 +28,24 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvTask"
+            android:id="@+id/tvItemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Task 123456"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:text="Item Title"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/tvDate"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivStatus"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvDate"
+        <ImageView
+            android:id="@+id/ivDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="16.12.2019"
-            app:layout_constraintBottom_toTopOf="@id/tvTimeToComplete"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvTimeToComplete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10h"
+            android:src="@drawable/ic_close"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDate" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

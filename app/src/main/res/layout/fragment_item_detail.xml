@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="order"
-            type="io.github.defolters.taskdistribution.data.remote.model.Order" />
+            name="item"
+            type="io.github.defolters.taskdistribution.data.remote.model.Item" />
 
     </data>
 
@@ -16,7 +16,7 @@
         android:background="@color/background"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        tools:context=".presentation.orderdetail.view.OrderDetailFragment">
+        tools:context=".presentation.itemdetail.view.ItemDetailFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,14 +29,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/poppins_font"
-                android:text="Order detail"
+                android:text="Item detail"
                 android:textColor="@color/textColor"
                 android:textSize="32sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{order.titleString}"
+                android:text="@{item.title}"
                 android:textSize="24sp" />
 
             <TextView
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="Date:"
+                android:text="Info:"
                 android:textSize="12sp" />
 
             <TextView
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="@{order.createdAt}"
+                android:text="@{item.info}"
                 android:textColor="@color/textColor"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -60,9 +60,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginEnd="10dp"
                 android:text="Price:"
                 android:textSize="12sp" />
 
@@ -71,26 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="@{order.priceString}"
-                android:textColor="@color/textColor"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                android:text="Customer:"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:text="@{order.customerString}"
+                android:text="@{item.priceString}"
                 android:textColor="@color/textColor"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -99,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Items:"
+                android:text="Tasks:"
                 android:textSize="24sp" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -107,6 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:nestedScrollingEnabled="true"
                 tools:listitem="@layout/item_item" />
 
         </LinearLayout>

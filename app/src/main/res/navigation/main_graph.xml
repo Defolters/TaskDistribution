@@ -47,7 +47,11 @@
         android:id="@+id/orderDetailFragment"
         android:name="io.github.defolters.taskdistribution.presentation.orderdetail.view.OrderDetailFragment"
         android:label="fragment_order_detail"
-        tools:layout="@layout/fragment_order_detail" />
+        tools:layout="@layout/fragment_order_detail">
+        <action
+            android:id="@+id/action_orderDetailFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/tasksListFragment"
         android:name="io.github.defolters.taskdistribution.presentation.taskslist.view.TasksListFragment"
@@ -57,9 +61,23 @@
             android:id="@+id/action_tasksListFragment_to_taskDetailFragment"
             app:destination="@id/taskDetailFragment" />
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/taskDetailFragment"
         android:name="io.github.defolters.taskdistribution.presentation.taskdetail.view.TaskDetailFragment"
         android:label="fragment_task_detail"
         tools:layout="@layout/fragment_task_detail" />
+    <fragment
+        android:id="@+id/itemDetailFragment"
+        android:name="io.github.defolters.taskdistribution.presentation.itemdetail.view.ItemDetailFragment"
+        android:label="ItemDetailFragment"
+        tools:layout="@layout/fragment_item_detail">
+        <action
+            android:id="@+id/action_itemDetailFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/addItemFragment"
+        android:name="io.github.defolters.taskdistribution.presentation.additem.view.AddItemFragment"
+        android:label="AddItemFragment"
+        tools:layout="@layout/fragment_add_item" />
 </navigation>
