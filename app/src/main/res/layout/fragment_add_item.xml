@@ -56,16 +56,16 @@
             android:id="@+id/etInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginEnd="36dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="26dp"
             android:hint="Доп. информация о товаре" />
 
         <EditText
             android:id="@+id/etPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginEnd="36dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="26dp"
             android:hint="Стоимость"
             android:inputType="numberDecimal" />
 

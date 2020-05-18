@@ -20,5 +20,9 @@
     <string name="item_info">Информация о товаре</string>
     <string name="search_hint">Что вы хотите найти?</string>
     <string name="orders">Заказы</string>
+    <string name="order_details">Детали заказа</string>
+    <string name="date">Дата:</string>
+    <string name="price">Стоимость:</string>
+    <string name="customer_">Покупатель:</string>
 
 </resources>
