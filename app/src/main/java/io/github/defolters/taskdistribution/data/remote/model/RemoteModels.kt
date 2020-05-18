@@ -47,7 +47,7 @@ data class Order(
     val isReady: Boolean
 ) : Parcelable {
     val titleString
-        get() = "Order $id"
+        get() = "Заказ $id"
     val priceString
         get() = "$price P"
     val customerString

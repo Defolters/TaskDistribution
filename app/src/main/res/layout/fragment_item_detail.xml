@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/poppins_font"
-                android:text="Item detail"
+                android:text="Детали товара"
                 android:textColor="@color/textColor"
                 android:textSize="32sp" />
 
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="Info:"
+                android:text="@string/item_info"
                 android:textSize="12sp" />
 
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
-                android:text="Price:"
+                android:text="@string/price"
                 android:textSize="12sp" />
 
             <TextView
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Tasks:"
+                android:text="@string/tasks"
                 android:textSize="24sp" />
 
             <androidx.recyclerview.widget.RecyclerView
