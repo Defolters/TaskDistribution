@@ -13,5 +13,10 @@
     <string name="email">Email</string>
     <string name="items">Товары:</string>
     <string name="add_item">Добавить товар</string>
+    <string name="task_detail">Доп. информация</string>
+    <string name="start_date">Дата начала:</string>
+    <string name="end_date">Дата конца:</string>
+    <string name="item_title">Название товара</string>
+    <string name="item_info">Информация о товаре</string>
 
 </resources>
