@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:fontFamily="@font/poppins_font"
-            android:text="Add order"
+            android:text="@string/add_order"
             android:textColor="@color/textColor"
             android:textSize="32sp"
             app:layout_constraintEnd_toStartOf="@id/ivDone"
@@ -45,7 +45,7 @@
             android:id="@+id/etCustomerName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Customer"
+            android:hint="@string/customer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
@@ -53,7 +53,7 @@
             android:id="@+id/etCustomerEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="email"
+            android:hint="@string/email"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etCustomerName" />
 
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Items:"
+            android:text="@string/items"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etCustomerEmail" />
@@ -72,11 +72,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Price: 0"
+            android:text="Стоимость:"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etCustomerEmail" />
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvItems"
@@ -92,6 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/gradient_button_start"
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +104,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
-                android:text="Add Item"
+                android:text="@string/add_item"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
         </androidx.cardview.widget.CardView>

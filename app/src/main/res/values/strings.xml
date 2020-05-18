@@ -8,5 +8,10 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="logout">Logout</string>
+    <string name="add_order">Добавить заказ</string>
+    <string name="customer">Покупатель</string>
+    <string name="email">Email</string>
+    <string name="items">Товары:</string>
+    <string name="add_item">Добавить товар</string>
 
 </resources>

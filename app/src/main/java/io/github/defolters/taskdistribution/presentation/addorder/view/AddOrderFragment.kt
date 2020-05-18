@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.github.defolters.taskdistribution.R
+import io.github.defolters.taskdistribution.data.remote.model.OrderJSON
 import io.github.defolters.taskdistribution.databinding.FragmentAddOrderBinding
+import io.github.defolters.taskdistribution.presentation.SharedViewModel
 import io.github.defolters.taskdistribution.presentation.addorder.AddOrderContract
-import io.github.defolters.taskdistribution.presentation.addorder.model.ItemModel
 import io.github.defolters.taskdistribution.presentation.addorder.presenter.AddOrderPresenter
 import io.github.defolters.taskdistribution.util.navControl
 import kotlinx.android.synthetic.main.fragment_add_order.*
@@ -24,7 +27,16 @@ class AddOrderFragment : Fragment(), AddOrderContract.View {
 
     private lateinit var binding: FragmentAddOrderBinding
     private lateinit var presenter: AddOrderContract.Presenter
-    private lateinit var adapter: ItemsAdapter
+    private lateinit var adapter: ItemJsonTemplateAdapter
+    private lateinit var sharedViewModel: SharedViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        activity?.run {
+            sharedViewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,27 +61,43 @@ class AddOrderFragment : Fragment(), AddOrderContract.View {
             navigateToAddItem()
         }
 
-        adapter = ItemsAdapter()
+        adapter = ItemJsonTemplateAdapter()
 
         val llm = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         rvItems.layoutManager = llm
         rvItems.adapter = adapter
 
-        adapter.onItemClick = {
+        adapter.onItemDelete = {
             //navigateToOrder()
+            val newList = sharedViewModel.itemsData.value!!.toMutableList()
+            newList.remove(it)
+            sharedViewModel.itemsData.value = newList
+
         }
 
-        adapter.dataset = mutableListOf(
-            ItemModel("Item", "Item", 150f, null),
-            ItemModel("Item", "Item", 150f, null),
-            ItemModel("Item", "Item", 150f, null),
-            ItemModel("Item", "Item", 150f, null)
-        )
+        ivDone.setOnClickListener {
+            presenter.createOrder(
+                OrderJSON(
+                    0,
+                    etCustomerName.text.toString(),
+                    etCustomerEmail.text.toString(),
+                    sharedViewModel.itemsData.value!!,
+                    null
+                )
+            )
+        }
 
-//        presenter.get()
+        sharedViewModel.itemsData.observe(this, Observer { items ->
+            adapter.dataset = items.toMutableList()
+            tvPrice.text = "Стоимость: ${items.sumByDouble { it.price }} P"
+        })
     }
 
     override fun navigateToAddItem() {
         navControl()?.navigate(R.id.action_addOrderFragment_to_itemsListFragment)
+    }
+
+    override fun onAddOrder() {
+        navControl()?.popBackStack()
     }
 }
