@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/poppins_font"
-        android:text="Add item"
+        android:text="@string/add_item"
         android:textColor="@color/textColor"
         android:textSize="32sp" />
 
@@ -45,7 +45,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="10dp"
             android:background="@android:color/transparent"
-            android:hint="What are you looking for?"
+            android:hint="@string/search_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivSearch"
             app:layout_constraintTop_toTopOf="parent" />
@@ -56,6 +56,6 @@
         android:id="@+id/rvItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_item" />
+        tools:listitem="@layout/item_item_template" />
 
 </LinearLayout>

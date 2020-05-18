@@ -1,11 +1,14 @@
 package io.github.defolters.taskdistribution.presentation.itemslist
 
+import io.github.defolters.taskdistribution.data.remote.model.ItemTemplate
+
 interface ItemsListContract {
     interface View {
-//        fun addItem()
+        fun showItemTemplates(items: List<ItemTemplate>)
+        fun toAddItem(itemTemplate: ItemTemplate)
     }
 
     interface Presenter {
-//        fun addItems
+        fun getItemTemplates()
     }
 }

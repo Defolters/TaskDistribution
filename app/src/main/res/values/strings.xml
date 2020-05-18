@@ -18,5 +18,6 @@
     <string name="end_date">Дата конца:</string>
     <string name="item_title">Название товара</string>
     <string name="item_info">Информация о товаре</string>
+    <string name="search_hint">Что вы хотите найти?</string>
 
 </resources>
