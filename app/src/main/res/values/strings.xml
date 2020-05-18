@@ -7,7 +7,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="logout">Logout</string>
+    <string name="logout">Выйти</string>
     <string name="add_order">Добавить заказ</string>
     <string name="customer">Покупатель</string>
     <string name="email">Email</string>
@@ -19,5 +19,6 @@
     <string name="item_title">Название товара</string>
     <string name="item_info">Информация о товаре</string>
     <string name="search_hint">Что вы хотите найти?</string>
+    <string name="orders">Заказы</string>
 
 </resources>

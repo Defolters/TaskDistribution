@@ -11,12 +11,14 @@
 
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
             android:baselineAligned="false"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -26,12 +28,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="@dimen/default_margin"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
-                android:text="Choose task templates"
+                android:text="Информация"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="32sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -40,7 +41,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="@dimen/default_margin"
-                android:layout_marginEnd="21dp"
                 android:src="@drawable/ic_close"
                 android:tint="#000" />
 
@@ -50,18 +50,34 @@
             android:id="@+id/etInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Info" />
+            android:layout_marginStart="36dp"
+            android:layout_marginEnd="36dp"
+            android:hint="Доп. информация о товаре" />
 
         <EditText
             android:id="@+id/etPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="price" />
+            android:layout_marginStart="36dp"
+            android:layout_marginEnd="36dp"
+            android:hint="Стоимость"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/tvAdditional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:text="Дополнительно:"
+            android:textSize="24sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTaskTemplates"
             android:layout_width="match_parent"
-            android:layout_height="415dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
             tools:listitem="@layout/item_task_template" />
 
         <TextView
@@ -71,7 +87,7 @@
             android:background="@color/gradient_button_start"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:text="ADD ITEM"
+            android:text="@string/add_item"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="normal" />

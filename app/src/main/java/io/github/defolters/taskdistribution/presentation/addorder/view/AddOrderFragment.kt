@@ -76,15 +76,21 @@ class AddOrderFragment : Fragment(), AddOrderContract.View {
         }
 
         ivDone.setOnClickListener {
-            presenter.createOrder(
-                OrderJSON(
-                    0,
-                    etCustomerName.text.toString(),
-                    etCustomerEmail.text.toString(),
-                    sharedViewModel.itemsData.value!!,
-                    null
+            val name = etCustomerName.text.toString()
+            val email = etCustomerEmail.text.toString()
+            val items = sharedViewModel.itemsData.value
+
+            if (name.isNotBlank() && email.isNotBlank() && items?.isNotEmpty() == true) {
+                presenter.createOrder(
+                    OrderJSON(
+                        0,
+                        name,
+                        email,
+                        items,
+                        null
+                    )
                 )
-            )
+            }
         }
 
         sharedViewModel.itemsData.observe(this, Observer { items ->

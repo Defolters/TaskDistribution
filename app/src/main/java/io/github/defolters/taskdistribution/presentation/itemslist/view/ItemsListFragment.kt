@@ -81,6 +81,7 @@ class ItemsListFragment : Fragment(), ItemsListContract.View {
     override fun toAddItem(itemTemplate: ItemTemplate) {
         val bundle = Bundle().apply {
             putInt("ITEM_TEMPLATE_ID", itemTemplate.id)
+            putString("ITEM_TEMPLATE_TITLE", itemTemplate.title)
         }
         AddItemFragment.newInstance(bundle).show(fragmentManager!!, "")
 //        navControl()?.navigate(R.id.action_itemDetailFragment_to_addItemFragment, bundle)

@@ -36,7 +36,7 @@ class ItemJsonTemplateAdapter : RecyclerView.Adapter<ItemJsonTemplateAdapter.Vie
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model = dataset[position]
-        holder.itemView.tvItemName.text = model.info
+        holder.itemView.tvItemName.text = model.info // TODO: add title!!
         holder.itemView.ivDelete.setOnClickListener {
             onItemDelete(model)
         }
