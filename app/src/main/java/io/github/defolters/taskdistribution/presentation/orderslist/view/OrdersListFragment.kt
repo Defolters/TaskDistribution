@@ -10,10 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.github.defolters.taskdistribution.R
+import io.github.defolters.taskdistribution.data.remote.model.Order
 import io.github.defolters.taskdistribution.databinding.FragmentOrdersListBinding
 import io.github.defolters.taskdistribution.presentation.EdgeDecorator
 import io.github.defolters.taskdistribution.presentation.orderslist.OrdersListContract
-import io.github.defolters.taskdistribution.presentation.orderslist.model.OrderModel
 import io.github.defolters.taskdistribution.presentation.orderslist.presenter.OrdersListPresenter
 import io.github.defolters.taskdistribution.util.navControl
 import kotlinx.android.synthetic.main.fragment_orders_list.*
@@ -58,13 +58,17 @@ class OrdersListFragment : Fragment(), OrdersListContract.View {
         rvOrders.addItemDecoration(EdgeDecorator(0, 400))
 
         adapter.onItemClick = {
-            navigateToOrder()
+            navigateToOrder(it)
         }
 
         presenter.getOrders()
+
+        tvLogout.setOnClickListener {
+            presenter.logout()
+        }
     }
 
-    override fun showOrders(orders: List<OrderModel>) {
+    override fun showOrders(orders: List<Order>) {
         adapter.dataset = orders.toMutableList()
     }
 
@@ -72,7 +76,14 @@ class OrdersListFragment : Fragment(), OrdersListContract.View {
         navControl()?.navigate(R.id.action_ordersListFragment_to_addOrderFragment)
     }
 
-    override fun navigateToOrder() {
-        navControl()?.navigate(R.id.action_ordersListFragment_to_orderDetailFragment)
+    override fun navigateToOrder(order: Order) {
+        val bundle = Bundle().apply {
+            putParcelable("ORDER", order)
+        }
+        navControl()?.navigate(R.id.action_ordersListFragment_to_orderDetailFragment, bundle)
+    }
+
+    override fun navigateToLogin() {
+        navControl()?.navigate(R.id.action_ordersListFragment_to_loginFragment)
     }
 }

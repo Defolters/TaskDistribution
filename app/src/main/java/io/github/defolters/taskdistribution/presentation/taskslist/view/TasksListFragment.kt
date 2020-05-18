@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.github.defolters.taskdistribution.R
+import io.github.defolters.taskdistribution.data.remote.model.ScheduleTaskData
+import io.github.defolters.taskdistribution.presentation.taskdetail.view.TaskDetailFragment
 import io.github.defolters.taskdistribution.presentation.taskslist.TasksListContract
-import io.github.defolters.taskdistribution.presentation.taskslist.model.TaskModel
 import io.github.defolters.taskdistribution.presentation.taskslist.presenter.TasksListPresenter
 import io.github.defolters.taskdistribution.util.navControl
+import io.paperdb.Paper
 import kotlinx.android.synthetic.main.fragment_tasks_list.*
 
 /**
@@ -22,7 +24,7 @@ class TasksListFragment : Fragment(), TasksListContract.View {
 
     private lateinit var presenter: TasksListContract.Presenter
     //    private lateinit var binding: FragmentOrdersListBinding
-    private lateinit var adapter: TasksAdapter
+    private lateinit var adapter: ScheduleTaskAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,24 +39,59 @@ class TasksListFragment : Fragment(), TasksListContract.View {
 
         presenter = TasksListPresenter(this)
 
-        adapter = TasksAdapter()
+        adapter = ScheduleTaskAdapter()
 
         val llm = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         rvTasks.layoutManager = llm
         rvTasks.adapter = adapter
 
         adapter.onItemClick = {
-            navigateToTask()
+            navigateToTask(it)
         }
 
-        presenter.getTasks()
+//        bottom_navigation_bar.setOnNavigationItemSelectedListener { item ->
+//
+//            when (item.itemId) {
+//                R.id.nav_current -> {
+//                    adapter.setStatusFilter(TaskStatus.IN_WORK)
+//                }
+//                R.id.nav_new -> {
+//                    adapter.setStatusFilter(TaskStatus.NEW)
+//                }
+//                R.id.nav_done -> {
+//                    adapter.setStatusFilter(TaskStatus.DONE)
+//                }
+//                else -> {
+//                }
+//            }
+//            true
+//        }
+
+        val workerTypeId = Paper.book().read<Int>("WORKER_TYPE_ID")
+
+//        tvWorkerType
+
+
+        presenter.getTasks(workerTypeId)
+
+        tvLogout.setOnClickListener {
+            presenter.logout()
+        }
     }
 
-    override fun showTasks(tasks: List<TaskModel>) {
+    override fun showSchedule(tasks: List<ScheduleTaskData>) {
         adapter.dataset = tasks.toMutableList()
     }
 
-    override fun navigateToTask() {
-        navControl()?.navigate(R.id.action_tasksListFragment_to_taskDetailFragment)
+
+    override fun navigateToTask(task: ScheduleTaskData) {
+        val bundle = Bundle().apply {
+            putParcelable("SCHEDULE_TASK", task)
+        }
+        TaskDetailFragment.newInstance(bundle).show(fragmentManager!!, "")
+    }
+
+    override fun navigateToLogin() {
+        navControl()?.navigate(R.id.action_tasksListFragment_to_loginFragment)
     }
 }

@@ -6,20 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.github.defolters.taskdistribution.R
-import io.github.defolters.taskdistribution.presentation.orderslist.model.OrderModel
-import io.github.defolters.taskdistribution.presentation.orderslist.model.OrderStatus
+import io.github.defolters.taskdistribution.data.remote.model.Order
 import io.github.defolters.taskdistribution.util.getLayoutInflater
 import kotlinx.android.synthetic.main.item_order.view.*
 
 
 class OrdersAdapter : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
 
-    var dataset: MutableList<OrderModel> = mutableListOf()
+    var dataset: MutableList<Order> = mutableListOf()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
-    var onItemClick: (OrderModel) -> Unit = {}
+    var onItemClick: (Order) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -43,11 +42,15 @@ class OrdersAdapter : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         @SuppressLint("SetTextI18n")
-        fun bind(model: OrderModel) {
+        fun bind(model: Order) {
 
-            when (model.status) {
-                OrderStatus.IN_PROGRESS -> itemView.ivStatus.setImageResource(R.drawable.ic_time_black)
-                OrderStatus.DONE -> itemView.ivStatus.setImageResource(R.drawable.ic_done_black)
+            itemView.tvOrder.text = "Order ${model.id}"
+            itemView.tvPrice.text = "${model.price}Р"
+            itemView.tvDate.text = model.createdAt
+
+            when (model.isReady) {
+                false -> itemView.ivStatus.setImageResource(R.drawable.ic_time_black)
+                true -> itemView.ivStatus.setImageResource(R.drawable.ic_done_black)
             }
 
         }

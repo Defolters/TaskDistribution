@@ -1,14 +1,16 @@
 package io.github.defolters.taskdistribution.presentation.taskslist
 
-import io.github.defolters.taskdistribution.presentation.taskslist.model.TaskModel
+import io.github.defolters.taskdistribution.data.remote.model.ScheduleTaskData
 
 interface TasksListContract {
     interface View {
-        fun navigateToTask()
-        fun showTasks(tasks: List<TaskModel>)
+        fun navigateToTask(task: ScheduleTaskData)
+        fun navigateToLogin()
+        fun showSchedule(tasks: List<ScheduleTaskData>)
     }
 
     interface Presenter {
-        fun getTasks()
+        fun getTasks(workerTypeId: Int)
+        fun logout()
     }
 }
