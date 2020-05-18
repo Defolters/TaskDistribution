@@ -1,5 +1,8 @@
 package io.github.defolters.taskdistribution.data.remote.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 enum class UserType {
     ADMIN, SELLER, WORKER
 }
@@ -34,6 +37,7 @@ data class TaskTemplateFilterJSON(
 
 data class TaskJSON(val id: Int, val taskStatus: TaskStatus)
 
+@Parcelize
 data class Order(
     val id: Int,
     val customerName: String,
@@ -41,8 +45,17 @@ data class Order(
     val price: Double,
     val createdAt: String,
     val isReady: Boolean
-)
+) : Parcelable {
+    val titleString
+        get() = "Order $id"
+    val priceString
+        get() = "$price P"
+    val customerString
+        get() = "$customerName $customerEmail"
 
+}
+
+@Parcelize
 data class Item(
     val id: Int,
     val orderId: Int,
@@ -51,7 +64,10 @@ data class Item(
     val price: Double,
     val isReady: Boolean,
     val color: String
-)
+) : Parcelable {
+    val priceString
+        get() = "$price P"
+}
 
 data class Task(
     val id: Int,
@@ -80,3 +96,18 @@ data class TaskTemplate(
     val timeToComplete: Int,
     val isAdditional: Boolean //val type = enumerationByName("type", 10, Type::class.java)
 )
+
+data class WorkerTypeData(val id: Int, val name: String)
+@Parcelize
+data class ScheduleTaskData(
+    val id: Int,
+    val resourceId: Int,
+    val taskId: Int,
+    val start: String,
+    val end: String,
+    val title: String,
+    val bgColor: String = "red"
+) : Parcelable
+
+data class ScheduleData(val workerTypes: List<WorkerTypeData>, val tasks: List<ScheduleTaskData>)
+

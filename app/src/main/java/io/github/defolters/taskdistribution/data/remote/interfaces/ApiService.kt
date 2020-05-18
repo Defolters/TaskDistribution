@@ -44,5 +44,9 @@ interface ApiService {
 
     // TASK TEMPLATES
     @GET("task-templates")
-    fun getTaskTemplates(@Query("filter") filter: TaskTemplateFilterJSON?): Call<List<TaskTemplate>>
+    fun getTaskTemplates(@Query("filter") filter: String?): Call<List<TaskTemplate>>
+
+    // SCHEDULE
+    @GET("schedule")
+    fun getWorkerSchedule(): Call<ScheduleData>
 }
