@@ -14,7 +14,6 @@ import io.github.defolters.taskdistribution.presentation.taskdetail.view.TaskDet
 import io.github.defolters.taskdistribution.presentation.taskslist.TasksListContract
 import io.github.defolters.taskdistribution.presentation.taskslist.presenter.TasksListPresenter
 import io.github.defolters.taskdistribution.util.navControl
-import io.paperdb.Paper
 import kotlinx.android.synthetic.main.fragment_tasks_list.*
 
 /**
@@ -49,6 +48,10 @@ class TasksListFragment : Fragment(), TasksListContract.View {
             navigateToTask(it)
         }
 
+        adapter.onChangeStatusClick = {
+            presenter.changeStatus(it)
+        }
+
 //        bottom_navigation_bar.setOnNavigationItemSelectedListener { item ->
 //
 //            when (item.itemId) {
@@ -67,12 +70,12 @@ class TasksListFragment : Fragment(), TasksListContract.View {
 //            true
 //        }
 
-        val workerTypeId = Paper.book().read<Int>("WORKER_TYPE_ID")
+
 
 //        tvWorkerType
 
 
-        presenter.getTasks(workerTypeId)
+        presenter.getTasks()
 
         tvLogout.setOnClickListener {
             presenter.logout()

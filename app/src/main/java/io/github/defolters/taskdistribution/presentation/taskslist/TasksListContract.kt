@@ -10,7 +10,8 @@ interface TasksListContract {
     }
 
     interface Presenter {
-        fun getTasks(workerTypeId: Int)
+        fun getTasks()
         fun logout()
+        fun changeStatus(scheduleTaskData: ScheduleTaskData)
     }
 }

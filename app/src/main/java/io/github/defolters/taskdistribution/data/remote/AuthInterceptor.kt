@@ -13,7 +13,9 @@ class AuthInterceptor : Interceptor {
         var res = chain.proceed(req.applyAuthHeader())
         if (res.code == 401 || res.code == 403) {
             // navigateToLogin()
-            // clean token
+            Paper.book().delete("TOKEN")
+            Paper.book().delete("WORKER_TYPE_ID")
+            Paper.book().delete("USER_TYPE")
             Log.d("Authorization", "code: ${res.code}")
         }
         return res

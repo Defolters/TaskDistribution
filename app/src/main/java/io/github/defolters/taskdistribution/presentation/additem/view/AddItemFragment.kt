@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -73,6 +74,7 @@ class AddItemFragment : BottomSheetDialogFragment(), AddItemContract.View {
                     )
                 )
                 sharedViewModel.itemsData.value = list
+                Toast.makeText(context, "Предмет добавлен", Toast.LENGTH_SHORT).show();
                 dismiss()
             }
         }

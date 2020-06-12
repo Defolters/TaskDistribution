@@ -26,5 +26,7 @@
     <string name="customer_">Покупатель:</string>
     <string name="tasks">Задания</string>
     <string name="login">Авторизация</string>
+    <string name="set_in_work">Взять в работу</string>
+    <string name="set_done">Закончить работу</string>
 
 </resources>
